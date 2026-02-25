@@ -1,4 +1,5 @@
 const container = document.querySelector("#container");
+const resizeBtn = document.querySelector("#resizeBtn");
 
 function makeGrid(size) {
   container.innerHTML = "";
@@ -22,3 +23,18 @@ function makeGrid(size) {
 }
 
 makeGrid(16);
+
+(resizeBtn,
+  addEventListener("click", () => {
+    const input = prompt("How many squares per side? (max 100)");
+
+    if (input === null) return;
+
+    const size = Number(input);
+
+    if (!Number.isInteger(size) || size < 1 || size > 100) {
+      alert("Please enter a whole number betweem 1 and 100.");
+    }
+
+    makeGrid(size);
+  }));
