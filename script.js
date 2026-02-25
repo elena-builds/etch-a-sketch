@@ -1,6 +1,14 @@
 const container = document.querySelector("#container");
 const resizeBtn = document.querySelector("#resizeBtn");
 
+function randomColor() {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+
+  return `rgb(${r}, ${g}, ${b})`;
+}
+
 function makeGrid(size) {
   container.innerHTML = "";
 
@@ -15,7 +23,7 @@ function makeGrid(size) {
     square.style.height = `${squareSize}px`;
 
     square.addEventListener("mouseover", () => {
-      square.style.backgroundColor = "black";
+      square.style.backgroundColor = randomColor();
     });
 
     container.appendChild(square);
